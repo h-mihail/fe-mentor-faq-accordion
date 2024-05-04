@@ -12,7 +12,7 @@ import { faqData } from "./data";
 export const App = () => {
   const [expandedItem, setExpandedItem] = useState(null);
 
-  const onArticleClick = useCallback(
+  const handleArticleClick = useCallback(
     (i) => () => {
       if (expandedItem === i) setExpandedItem(null);
       else setExpandedItem(i);
@@ -20,13 +20,26 @@ export const App = () => {
     [expandedItem]
   );
 
+  const handleArticleKeyDown = useCallback(
+    (i) => (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault(); // Prevent scrolling when space is pressed
+        if (expandedItem === i) setExpandedItem(null);
+        else setExpandedItem(i);
+      }
+    },
+    [expandedItem]
+  );
+
   const renderFaqData = () => {
     return faqData.map(({ question, answer }, i) => (
       <Article
+        index={i}
         question={question}
         answer={answer}
         expanded={expandedItem === i}
-        onClick={onArticleClick(i)}
+        onClick={handleArticleClick(i)}
+        onKeyDown={handleArticleKeyDown(i)}
       />
     ));
   };
@@ -44,15 +57,28 @@ export const App = () => {
   );
 };
 
-const Article = ({ question, answer, expanded, onClick }) => {
+const Article = ({ index, question, answer, expanded, onClick, onKeyDown }) => {
   return (
     <article class="item">
-      <div onClick={onClick}>
+      <div
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-expanded={expanded}
+        aria-controls={`panel${index}`}
+      >
         <h2>{question}</h2>
         {!expanded && <img alt="collapsed" src={plusIcon} />}
         {expanded && <img alt="expanded" src={minusIcon} />}
       </div>
-      <p className={expanded ? "visible" : "hidden"}>{answer}</p>
+      <p
+        id={`panel${index}`}
+        className={expanded ? "visible" : "hidden"}
+        role="region"
+      >
+        {answer}
+      </p>
     </article>
   );
 };
