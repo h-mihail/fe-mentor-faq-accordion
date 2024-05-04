@@ -1,15 +1,25 @@
-# `create-preact`
+# Frontend Mentor - FAQ accordion solution
 
-<h2 align="center">
-  <img height="256" width="256" src="./src/assets/preact.svg">
-</h2>
+This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-<h3 align="center">Get started using Preact and Vite!</h3>
+## Overview
 
-## Getting Started
+### Screenshot
 
--   `npm run dev` - Starts a dev server at http://localhost:5173/
+<img src="./assets/screenshot2.png" width="250">
+<img src="./assets/screenshot.png" width="600">
 
--   `npm run build` - Builds for production, emitting to `dist/`. Prerenders app to static HTML
+### Links
 
--   `npm run preview` - Starts a server at http://localhost:4173/ to test production build locally
+- Live Site URL: [Github Pages](https://h-mihail.github.io/fe-mentor-faq-accordion/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [Preact](https://preactjs.com/) - JS library
+- [Vite](https://vitejs.dev/) - Frontend utility
