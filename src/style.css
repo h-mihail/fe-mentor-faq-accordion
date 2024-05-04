@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+  --primary: #301534;
+}
+
+html {
+  box-sizing: border-box;
+
+  font-size: 16px;
+  font-family: "Work Sans";
+
+  color: var(--Dark-purple);
+  background-color: var(--Light-pink);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8em 1.5em 1.5em 1.5em;
+
+  background-image: url("../assets/images/background-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media only screen and (min-width: 50em) {
+  main {
+    height: 100vh;
+    background-image: url("../assets/images/background-pattern-desktop.svg");
+  }
+}
+
+.card {
+  width: 40em;
+  height: auto;
+  padding: 2em;
+  background-color: white;
+  border-radius: 1em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  header {
+    display: flex;
+    gap: 2em;
+
+    img {
+      width: 1.5em;
+    }
+
+    @media only screen and (min-width: 50em) {
+      img {
+        width: 2.5em;
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    @media only screen and (min-width: 50em) {
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+.item {
+  border-bottom: 1px solid var(--Light-pink);
+  &:last-child {
+    border: none;
+  }
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.5em 0;
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      &:hover {
+        color: purple;
+      }
+    }
+
+    @media only screen and (min-width: 50em) {
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  p {
+    color: var(--Grayish-purple);
+    transition: all 0.4s ease-out;
+  }
+}
+
+.visible {
+  max-height: 40em;
+  opacity: 1;
+  visibility: visible;
+  padding-bottom: 2em;
+}
+
+.hidden {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
