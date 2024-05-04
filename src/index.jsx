@@ -1,6 +1,10 @@
 import { hydrate, prerender as ssr } from "preact-iso";
 import { useCallback, useState } from "preact/hooks";
 
+import starIcon from "/assets/icon-star.svg";
+import plusIcon from "/assets/icon-plus.svg";
+import minusIcon from "/assets/icon-minus.svg";
+
 import "./style.css";
 
 import { faqData } from "./data";
@@ -31,7 +35,7 @@ export const App = () => {
     <main>
       <div className="card">
         <header>
-          <img alt="title-decoration" src="../assets/images/icon-star.svg" />
+          <img alt="title-decoration" src={starIcon} />
           <h1>FAQs</h1>
         </header>
         <section>{renderFaqData()}</section>
@@ -45,12 +49,8 @@ const Article = ({ question, answer, expanded, onClick }) => {
     <article class="item">
       <div onClick={onClick}>
         <h2>{question}</h2>
-        {!expanded && (
-          <img alt="collapsed" src="../assets/images/icon-plus.svg" />
-        )}
-        {expanded && (
-          <img alt="expanded" src="../assets/images/icon-minus.svg" />
-        )}
+        {!expanded && <img alt="collapsed" src={plusIcon} />}
+        {expanded && <img alt="expanded" src={minusIcon} />}
       </div>
       <p className={expanded ? "visible" : "hidden"}>{answer}</p>
     </article>

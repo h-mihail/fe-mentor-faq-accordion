@@ -11,5 +11,5 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/faq-accordion-main",
+  base: "/fe-mentor-faq-accordion/",
 });

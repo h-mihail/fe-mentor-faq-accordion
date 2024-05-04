@@ -30,7 +30,7 @@ main {
   align-items: center;
   padding: 8em 1.5em 1.5em 1.5em;
 
-  background-image: url("../assets/images/background-pattern-mobile.svg");
+  background-image: url("/assets/background-pattern-mobile.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -38,7 +38,7 @@ main {
 @media only screen and (min-width: 50em) {
   main {
     height: 100vh;
-    background-image: url("../assets/images/background-pattern-desktop.svg");
+    background-image: url("/assets/background-pattern-desktop.svg");
   }
 }
 
